@@ -53,8 +53,11 @@ public class ScienceActivity extends AppCompatActivity {
 
         // 2. Quiz Button -> Stay here
         btnQuiz.setOnClickListener(v -> {
-
-            Toast.makeText(ScienceActivity.this, "You are already in the Quiz section", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(ScienceActivity.this, QuizHomeActivity.class);
+            // Clear back stack so pressing back doesn't return to Science
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish(); // Close current activity
         });
 
         // 3. History Button -> Go to HistoryActivity

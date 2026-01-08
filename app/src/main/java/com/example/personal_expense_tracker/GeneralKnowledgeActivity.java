@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
-import android.view.View;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -35,9 +35,11 @@ public class GeneralKnowledgeActivity extends AppCompatActivity {
         Button btnHistory = findViewById(R.id.navHistory);
         //EventListener
         btnStart.setOnClickListener(v -> {
-            // TODO: Add logic to start the actual quiz questions here
-            Toast.makeText(GeneralKnowledgeActivity.this, "Starting Science Quiz...", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, QuizActivity.class);
+            intent.putExtra("QUIZ_TYPE", "GK");
+            startActivity(intent);
         });
+
 
         // --- Bottom Navigation Bar---
 

@@ -7,4 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!-- Science -->
+    <color name="science_bg">#E3F2FD</color>
+    <color name="science_box">#BBDEFB</color>
+    <color name="science_btn">#2196F3</color>
+
+    <!-- General Knowledge -->
+    <color name="gk_bg">#E8F5E9</color>
+    <color name="gk_box">#C8E6C9</color>
+    <color name="gk_btn">#4CAF50</color>
+
 </resources>

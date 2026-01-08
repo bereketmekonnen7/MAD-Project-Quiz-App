@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +15,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SessionManager session = new SessionManager(this);
+
+        if (session.getUserId() == -1) {
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+            return;
+        }
+
+        TextView txtUsername = findViewById(R.id.txtUsername);
+        txtUsername.setText("Hi, " + session.getUsername());
 
         LinearLayout btnGeneral = findViewById(R.id.btnGeneral);
         LinearLayout btnScience = findViewById(R.id.btnScience);
@@ -35,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "You are already in the Home section", Toast.LENGTH_SHORT).show();
         });
 
-        // 2. Quiz Button -> Stay here
+        // 2. Quiz Button -> Go to QuizActivity
         btnQuiz.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, QuizHomeActivity.class);
             // Clear back stack so pressing back doesn't return to Science

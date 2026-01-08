@@ -36,9 +36,11 @@ public class ScienceActivity extends AppCompatActivity {
         Button btnHistory = findViewById(R.id.navHistory);
         //EventListener
         btnStart.setOnClickListener(v -> {
-            // TODO: Add logic to start the actual quiz questions here
-            Toast.makeText(ScienceActivity.this, "Starting Science Quiz...", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(ScienceActivity.this, QuizActivity.class);
+            intent.putExtra("QUIZ_TYPE", "SCIENCE");
+            startActivity(intent);
         });
+
 
         // --- Bottom Navigation Bar---
 
